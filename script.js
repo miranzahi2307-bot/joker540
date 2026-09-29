@@ -1855,10 +1855,25 @@ sortHand(computerHands[2]);
       const count = playerHand.length;
 const visualIndex = count - 1 - index;
 
-const cardStep = Math.min(30, 360 / Math.max(count - 1, 1));
+// عرض واقعی صفحه
+const screenWidth = window.innerWidth;
+
+// عرض تقریبی هر کارت
+const cardWidth = 60;
+
+// فاصله‌ای که باعث می‌شود همه کارت‌ها داخل صفحه بمانند
+const maxHandWidth = screenWidth - 20;
+
+// فاصله بین کارت‌ها
+const cardStep = count > 1
+  ? Math.min(30, maxHandWidth / (count - 1))
+  : 0;
 
 const totalWidth = cardStep * (count - 1);
-const offset = -totalWidth / 2 + visualIndex * cardStep;
+
+const offset =
+  -totalWidth / 2 +
+  visualIndex * cardStep;
 
 const maxAngle = Math.min(24, (count - 1) * 3);
 const angle = count > 1
