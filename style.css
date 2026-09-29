@@ -63,88 +63,55 @@ h1 {
   box-shadow:
     0 4px 10px rgba(0, 0, 0, 0.35);
 }
-
-
 /* =========================
-   دست بازیکن
+   دست بازیکن - مناسب موبایل
    ========================= */
-
-#playerHand {
-  position: fixed;
-
-  bottom: 15px;
-  left: 50%;
-
-  transform: translateX(-50%);
-
-  width: 100%;
-
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-
-  padding: 0 5px;
-
-  direction: ltr;
-}
 
 #playerHand {
   position: fixed;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 96vw;
+
+  width: 100vw;
   height: 150px;
+
   display: flex;
   justify-content: center;
   align-items: flex-end;
+
   padding: 0;
+  direction: ltr;
+
+  overflow: visible;
 }
 
-.card-image {
-  width: 60px !important;
-  height: auto !important;
-  max-width: 60px !important;
-
-  display: block;
-  flex: 0 0 60px;
-
-
-  position: relative;
-  border-radius: 6px;
-
-  transition:
-    transform 0.2s ease,
-    filter 0.2s ease,
-    opacity 0.2s ease;
-}
-/* =========================
-   چیدمان هوشمند دست
-   کارت‌ها همیشه حول مرکز جمع می‌شوند
-   ========================= */
-
+/* کارت‌های دست */
 #playerHand .card-image {
   position: absolute;
-  left: 50%;
+
   bottom: 0;
+  left: 50%;
 
   width: 60px !important;
+  height: auto !important;
   max-width: 60px !important;
 
   margin: 0 !important;
 
   transform-origin: 50% 100%;
 
+  border-radius: 6px;
+
   transition:
     left 0.25s ease,
-    transform 0.25s ease;
+    transform 0.25s ease,
+    filter 0.2s ease,
+    opacity 0.2s ease;
 }
 
-.card-image:first-child {
-  margin-left: 0 !important;
-}
-
-.card-image.selected {
+/* کارت انتخاب‌شده */
+#playerHand .card-image.selected {
   filter: brightness(1.08);
   z-index: 50;
 }
