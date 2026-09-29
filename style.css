@@ -1,0 +1,227 @@
+body {
+  margin: 0;
+  padding: 15px;
+  background: #176b3a;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  overflow: hidden;
+}
+
+h1 {
+  color: white;
+  font-size: 26px;
+  margin: 10px 0;
+}
+
+#result {
+  color: white;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+#gameTable {
+  min-height: 80vh;
+  position: relative;
+}
+
+/* نام بازیکن */
+#playerName {
+  color: white;
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+/* =========================
+   وسط میز
+   ========================= */
+
+#centerCards {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 90px;
+  height: 130px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  pointer-events: none;
+}
+
+/* کارت وسط */
+.center-card {
+  width: 65px;
+  height: auto;
+
+  border-radius: 5px;
+
+  position: absolute;
+
+  box-shadow:
+    0 4px 10px rgba(0, 0, 0, 0.35);
+}
+
+
+/* =========================
+   دست بازیکن
+   ========================= */
+
+#playerHand {
+  position: fixed;
+
+  bottom: 15px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+
+  padding: 0 5px;
+
+  direction: ltr;
+}
+
+#playerHand {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 96vw;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 0;
+}
+
+.card-image {
+  width: 60px !important;
+  height: auto !important;
+  max-width: 60px !important;
+
+  display: block;
+  flex: 0 0 60px;
+
+
+  position: relative;
+  border-radius: 6px;
+
+  transition:
+    transform 0.2s ease,
+    filter 0.2s ease,
+    opacity 0.2s ease;
+}
+/* =========================
+   چیدمان هوشمند دست
+   کارت‌ها همیشه حول مرکز جمع می‌شوند
+   ========================= */
+
+#playerHand .card-image {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+
+  width: 60px !important;
+  max-width: 60px !important;
+
+  margin: 0 !important;
+
+  transform-origin: 50% 100%;
+
+  transition:
+    left 0.25s ease,
+    transform 0.25s ease;
+}
+
+.card-image:first-child {
+  margin-left: 0 !important;
+}
+
+.card-image.selected {
+  filter: brightness(1.08);
+  z-index: 50;
+}
+
+/* فقط غیرفعال */
+.illegal-card {
+  opacity: 0.85;
+  filter: blur(1.5px);
+  cursor: default;
+  pointer-events: none;
+}
+#turnInfo {
+  position: fixed;
+  top: 105px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  padding: 8px 16px;
+
+  font-size: 16px;
+  font-weight: bold;
+
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+
+  z-index: 200;
+}
+#gameCompleteScreen {
+  display: none;
+}
+#gameCompleteScreen {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: #123;
+  color: white;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+#gameCompleteScreen h2 {
+  font-size: 32px;
+  margin-bottom: 25px;
+}
+
+#gameCompleteReason {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+#finalScores {
+  font-size: 20px;
+  line-height: 2;
+  margin-bottom: 30px;
+}
+
+#newGameButton {
+  padding: 12px 25px;
+  font-size: 18px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+/* =========================
+   سازگاری با صفحه موبایل
+   ========================= */
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
