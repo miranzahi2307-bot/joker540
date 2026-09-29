@@ -1866,7 +1866,10 @@ const maxHandWidth = screenWidth - 20;
 
 // فاصله بین کارت‌ها
 const cardStep = count > 1
-  ? Math.min(30, maxHandWidth / (count - 1))
+  ? Math.min(
+      30,
+      (playerHandEl.clientWidth - 60 - 50) / (count - 1)
+    )
   : 0;
 
 const totalWidth = cardStep * (count - 1);
